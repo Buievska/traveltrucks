@@ -1,0 +1,12 @@
+.gallery {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.imageWrapper {
+  position: relative;
+  width: 290px;
+  height: 310px;
+  border-radius: 10px;
+  overflow: hidden;
+}

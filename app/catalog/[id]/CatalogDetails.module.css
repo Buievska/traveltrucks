@@ -1,0 +1,121 @@
+/* Головний контейнер сторінки */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  color: #101828;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.rating {
+  text-decoration: underline;
+  color: #101828;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 600;
+  color: #101828;
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 310px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-bottom: 44px;
+  max-width: 100%;
+}
+
+.tabsWrapper {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  margin-bottom: 44px;
+}
+
+.tabLink {
+  padding-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #101828;
+  position: relative;
+}
+
+.tabLink.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #e44848;
+}
+
+.mainContent {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.tabContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.stickySidebar {
+  width: 448px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  font-weight: 500;
+}

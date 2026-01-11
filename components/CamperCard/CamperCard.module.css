@@ -1,0 +1,154 @@
+.card {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 290px;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #101828;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.favoriteBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.heartIcon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #101828;
+  transition: all 0.3s ease;
+}
+
+.favoriteBtn.active .heartIcon {
+  fill: #e44848;
+  stroke: #e44848;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+}
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #101828;
+}
+
+.description {
+  color: #475467;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #f2f4f7;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.badgeIcon {
+  width: 20px;
+  height: 20px;
+  fill: #101828;
+}
+
+.showMoreBtn {
+  background: #e44848;
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 200px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.3s;
+}
+
+.showMoreBtn:hover {
+  background: #d84343;
+}

@@ -1,0 +1,100 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.label {
+  display: block;
+  color: rgba(16, 24, 40, 0.6);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: #101828;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 18px 18px 48px;
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+.filterTitle {
+  font-weight: 500;
+  color: #475467;
+  margin-bottom: 14px;
+}
+
+.categoryTitle {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 8px;
+}
+
+.filterBtn {
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+.filterBtn.active {
+  border-color: #e44848;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  fill: #101828;
+}
+
+.searchBtn {
+  background-color: #e44848;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 200px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 32px;
+  transition: background-color 0.3s;
+}
+
+.searchBtn:hover {
+  background-color: #d84343;
+}
