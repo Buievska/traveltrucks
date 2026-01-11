@@ -27,7 +27,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -37,3 +37,44 @@ traveltrucks.git](https://github.com/your-username/
 traveltrucks.git)
 cd travel-trucks
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+Open http://localhost:3000 with your browser to see the result.
+
+### 4. Build for production
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+### Configuration Note
+
+To ensure the images from the GoIT server load correctly, the next.config.js is configured with the following remotePatterns:
+
+```bash
+images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'ftp.goit.study',
+      pathname: '/img/**',
+    },
+  ],
+},
+```
+
+---

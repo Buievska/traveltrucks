@@ -38,7 +38,7 @@ export interface Camper {
 }
 
 export interface FilterState {
-  location: string;
+  location?: string;
   form: string;
   AC: boolean;
   transmission: string;

@@ -66,10 +66,8 @@
 }
 
 .heartIcon {
-  width: 24px;
+  width: 25px;
   height: 24px;
-  fill: none;
-  stroke: #101828;
   transition: all 0.3s ease;
 }
 
@@ -134,7 +132,13 @@
 .badgeIcon {
   width: 20px;
   height: 20px;
-  fill: #101828;
+  fill: black;
+}
+.badgesIcon {
+  fill: transparent;
+  stroke: black;
+  width: 20px;
+  height: 20px;
 }
 
 .showMoreBtn {

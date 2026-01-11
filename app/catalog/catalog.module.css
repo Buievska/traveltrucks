@@ -32,8 +32,9 @@
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.3s;
+  margin-top: 40px;
 }
 
 .loadMore:hover {
-  border-color: var(--primary-color);
+  border-color: var(--button-hover);
 }

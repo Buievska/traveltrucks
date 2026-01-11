@@ -13,7 +13,7 @@ export const Header = () => {
       <nav className={styles.nav}>
         <Link href="/" className={styles.logo}>
           <svg width="136" height="16" className={styles.logoSvg}>
-            <use href="/Logo.svg" />
+            <use href="/Logo.svg" />{" "}
           </svg>
         </Link>
 
@@ -28,7 +28,8 @@ export const Header = () => {
             href="/catalog"
             className={clsx(
               styles.link,
-              pathname.startsWith("/catalog") && styles.active
+
+              pathname === "/catalog" && styles.active
             )}
           >
             Catalog

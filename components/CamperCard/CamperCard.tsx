@@ -33,7 +33,7 @@ export const CamperCard = ({ camper }: Props) => {
               }`}
               onClick={() => toggleFavorite(camper.id)}
             >
-              <svg className={styles.heartIcon}>
+              <svg className={styles.heartIcon} width="25" height="24">
                 <use href="/icons.svg#icon-heart" />
               </svg>
             </button>
@@ -86,6 +86,38 @@ export const CamperCard = ({ camper }: Props) => {
                 <use href="/icons.svg#icon-ac" />
               </svg>
               <span>AC</span>
+            </div>
+          )}
+          {camper.refrigerator && (
+            <div className={styles.badge}>
+              <svg className={styles.badgeIcon}>
+                <use href="/icons.svg#icon-refrigerator" />
+              </svg>
+              <span>Refrigerator</span>
+            </div>
+          )}
+          {camper.microwave && (
+            <div className={styles.badge}>
+              <svg className={styles.badgesIcon}>
+                <use href="/icons.svg#icon-microwave" />
+              </svg>
+              <span>Microwave</span>
+            </div>
+          )}
+          {camper.gas && (
+            <div className={styles.badge}>
+              <svg className={styles.badgesIcon}>
+                <use href="/icons.svg#icon-gas" />
+              </svg>
+              <span>Gas</span>
+            </div>
+          )}
+          {camper.water && (
+            <div className={styles.badge}>
+              <svg className={styles.badgesIcon}>
+                <use href="/icons.svg#icon-water" />
+              </svg>
+              <span>Water</span>
             </div>
           )}
         </div>

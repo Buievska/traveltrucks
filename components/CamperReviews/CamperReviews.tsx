@@ -12,19 +12,23 @@ interface Props {
 
 export const Reviews = ({ reviews }: Props) => {
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <svg
-        key={i}
-        className={`${styles.starIcon} ${
-          i < rating ? styles.starFull : styles.starEmpty
-        }`}
-      >
-        <use href="/icons.svg#icon-star" />
-      </svg>
-    ));
+    const numericRating = Number(rating) || 0;
+
+    return Array.from({ length: 5 }, (_, i) => {
+      const iconHref =
+        i < numericRating
+          ? "/icons.svg#icon-star"
+          : "/icons.svg#icon-star-empty";
+
+      return (
+        <svg key={i} className={styles.starIcon} width="16" height="16">
+          <use href={iconHref} />
+        </svg>
+      );
+    });
   };
 
-  if (reviews.length === 0) {
+  if (!reviews || reviews.length === 0) {
     return <p className={styles.noReviews}>No reviews yet.</p>;
   }
 

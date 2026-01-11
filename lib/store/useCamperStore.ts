@@ -66,7 +66,6 @@ export const useCamperStore = create<CamperStore>()(
       setFilters: (newFilters) =>
         set((state) => ({ filters: { ...state.filters, ...newFilters } })),
 
-      // Функція для завантаження одного кемпера за ID
       fetchCamperById: async (id: string) => {
         set({ isLoading: true, currentCamper: null });
         try {
@@ -114,8 +113,20 @@ export const useCamperStore = create<CamperStore>()(
             isLoading: false,
             hasMore: totalLoaded < response.data.total,
           });
-        } catch (error) {
-          console.error("Error fetching campers:", error);
+        } catch (error: unknown) {
+          if (axios.isAxiosError(error)) {
+            if (error.response?.status === 404) {
+              console.warn("Нічого не знайдено за такими фільтрами (404)");
+              set({
+                items: isNewSearch ? [] : get().items,
+                isLoading: false,
+                hasMore: false,
+              });
+              return;
+            }
+          }
+
+          console.error("Помилка завантаження кемперів:", error);
           set({
             isLoading: false,
             items: isNewSearch ? [] : get().items,

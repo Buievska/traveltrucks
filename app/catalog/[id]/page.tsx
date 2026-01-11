@@ -7,7 +7,7 @@ import { useCamperStore } from "@/lib/store/useCamperStore";
 import { Features } from "@/components/CamperFeatures/CamperFeatures";
 import { Reviews } from "@/components/CamperReviews/CamperReviews";
 import { BookingForm } from "@/components/BookingForm/BookingForm";
-import styles from "./catalogDetails.module.css";
+import styles from "./CatalogDetails.module.css";
 
 export default function CamperDetailsPage() {
   const { id } = useParams();
@@ -31,11 +31,29 @@ export default function CamperDetailsPage() {
       <section className={styles.header}>
         <h1 className={styles.name}>{currentCamper.name}</h1>
         <div className={styles.meta}>
-          <span className={styles.rating}>
-            ⭐ {currentCamper.rating} ({currentCamper.reviews.length} Reviews)
-          </span>
-          <span className={styles.location}>📍 {currentCamper.location}</span>
+          <div className={styles.ratingWrapper}>
+            <svg className={styles.iconStar} width="16" height="16">
+              <use href="/icons.svg#icon-star" />
+            </svg>
+            <span className={styles.ratingText}>
+              {currentCamper.rating} (
+              <span className={styles.reviewsLink}>
+                {currentCamper.reviews.length} Reviews
+              </span>
+              )
+            </span>
+          </div>
+
+          <div className={styles.locationWrapper}>
+            <svg className={styles.iconMap} width="16" height="16">
+              <use href="/icons.svg#icon-map" />
+            </svg>
+            <span className={styles.locationText}>
+              {currentCamper.location}
+            </span>
+          </div>
         </div>
+
         <p className={styles.price}>€{currentCamper.price.toFixed(2)}</p>
       </section>
 
@@ -47,6 +65,7 @@ export default function CamperDetailsPage() {
               alt={`${currentCamper.name} ${index + 1}`}
               fill
               className={styles.image}
+              sizes="(max-width: 1440px) 290px"
             />
           </div>
         ))}

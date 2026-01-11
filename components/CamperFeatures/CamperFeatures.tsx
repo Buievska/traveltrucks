@@ -43,6 +43,38 @@ export const Features = ({ camper }: Props) => {
             <span>Radio</span>
           </div>
         )}
+        {camper.refrigerator && (
+          <div className={styles.badge}>
+            <svg width="20" height="20">
+              <use href="/icons.svg#icon-refrigerator" />
+            </svg>
+            <span>Refrigerator</span>
+          </div>
+        )}
+        {camper.microwave && (
+          <div className={styles.badge}>
+            <svg width="20" height="20" className={styles.iconDetails}>
+              <use href="/icons.svg#icon-microwave" />
+            </svg>
+            <span>Microwave</span>
+          </div>
+        )}
+        {camper.gas && (
+          <div className={styles.badge}>
+            <svg width="20" height="20" className={styles.iconDetails}>
+              <use href="/icons.svg#icon-gas " />
+            </svg>
+            <span>Gas</span>
+          </div>
+        )}
+        {camper.water && (
+          <div className={styles.badge}>
+            <svg width="20" height="20" className={styles.iconDetails}>
+              <use href="/icons.svg#icon-water" />
+            </svg>
+            <span>Water</span>
+          </div>
+        )}
       </div>
 
       <div className={styles.details}>
