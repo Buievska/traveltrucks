@@ -5,6 +5,7 @@ import { useCamperStore } from "@/lib/store/useCamperStore";
 import { Filters } from "@/components/Filters/Filters";
 import { CamperCard } from "@/components/CamperCard/CamperCard";
 import styles from "./catalog.module.css";
+import { Loader } from "@/components/Loader/Loader";
 
 export default function CatalogPage() {
   const { items, fetchCampers, isLoading, hasMore } = useCamperStore();
@@ -28,7 +29,7 @@ export default function CatalogPage() {
             : !isLoading && <p>No campers found.</p>}
         </div>
 
-        {isLoading && <p className={styles.loading}>Loading...</p>}
+        {isLoading && <Loader />}
 
         {hasMore && !isLoading && (
           <button className={styles.loadMore} onClick={() => fetchCampers()}>

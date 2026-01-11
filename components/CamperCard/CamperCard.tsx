@@ -120,6 +120,22 @@ export const CamperCard = ({ camper }: Props) => {
               <span>Water</span>
             </div>
           )}
+          {camper.bathroom && (
+            <div className={styles.badge}>
+              <svg className={styles.badgeIcon}>
+                <use href="/icons.svg#icon-bathroom" />
+              </svg>
+              <span>Bathroom</span>
+            </div>
+          )}
+          {camper.TV && (
+            <div className={styles.badge}>
+              <svg className={styles.badgeIcon}>
+                <use href="/icons.svg#icon-tv" />
+              </svg>
+              <span>TV</span>
+            </div>
+          )}
         </div>
 
         <Link href={`/catalog/${camper.id}`} className={styles.showMoreBtn}>

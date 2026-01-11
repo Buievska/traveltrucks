@@ -8,6 +8,7 @@ import { Features } from "@/components/CamperFeatures/CamperFeatures";
 import { Reviews } from "@/components/CamperReviews/CamperReviews";
 import { BookingForm } from "@/components/BookingForm/BookingForm";
 import styles from "./CatalogDetails.module.css";
+import { Loader } from "@/components/Loader/Loader";
 
 export default function CamperDetailsPage() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ export default function CamperDetailsPage() {
   }, [id, fetchCamperById]);
 
   if (isLoading || !currentCamper) {
-    return <div className={styles.loader}>Loading...</div>;
+    return <Loader />;
   }
 
   return (
@@ -35,12 +36,9 @@ export default function CamperDetailsPage() {
             <svg className={styles.iconStar} width="16" height="16">
               <use href="/icons.svg#icon-star" />
             </svg>
+
             <span className={styles.ratingText}>
-              {currentCamper.rating} (
-              <span className={styles.reviewsLink}>
-                {currentCamper.reviews.length} Reviews
-              </span>
-              )
+              {currentCamper.rating}({currentCamper.reviews.length} Reviews)
             </span>
           </div>
 

@@ -67,3 +67,7 @@
   align-self: center;
   margin-top: 10px;
 }
+
+.sendBtn:hover {
+  background: var(--button-hover);
+}

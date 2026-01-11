@@ -1,36 +1,23 @@
 import styles from "./CamperDetails.module.css";
+import { Reviews } from "@/components/CamperReviews/CamperReviews";
 
-interface Review {
-  reviewer_name: string;
-  reviewer_rating: number;
-  comment: string;
+interface Props {
+  camper: {
+    reviews: {
+      reviewer_name: string;
+      reviewer_rating: number;
+      comment: string;
+    }[];
+  };
 }
 
-export const Reviews = ({ reviews }: { reviews: Review[] }) => {
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < rating ? styles.starFull : styles.starEmpty}>
-        ★
-      </span>
-    ));
-  };
-
+export const CamperDetails = ({ camper }: Props) => {
   return (
-    <div className={styles.reviewsList}>
-      {reviews.map((rev, idx) => (
-        <div key={idx} className={styles.reviewCard}>
-          <div className={styles.userHeader}>
-            <div className={styles.avatar}>{rev.reviewer_name.charAt(0)}</div>
-            <div>
-              <p className={styles.userName}>{rev.reviewer_name}</p>
-              <div className={styles.stars}>
-                {renderStars(rev.reviewer_rating)}
-              </div>
-            </div>
-          </div>
-          <p className={styles.comment}>{rev.comment}</p>
-        </div>
-      ))}
+    <div className={styles.container}>
+      <section className={styles.reviewsSection}>
+        <h2 className={styles.title}>Reviews</h2>
+        <Reviews reviews={camper.reviews} />
+      </section>
     </div>
   );
 };

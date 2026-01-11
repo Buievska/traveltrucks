@@ -136,7 +136,7 @@ export const Filters = () => {
             <svg className={styles.icon} width="32" height="32">
               <use href="/icons.svg#icon-fully" />
             </svg>
-            Fully Integrated
+            <span>Fully Integrated</span>
           </button>
           <button
             type="button"

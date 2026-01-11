@@ -15,6 +15,21 @@ export const BookingForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email (e.g. user@mail.com)", {
+        duration: 4000,
+        position: "top-center",
+        style: {
+          background: "#e44848",
+          color: "#fff",
+          borderRadius: "12px",
+        },
+      });
+      return;
+    }
+
     toast.success("Booking successfully sent!", {
       duration: 4000,
       position: "top-center",
@@ -29,10 +44,6 @@ export const BookingForm = () => {
     setEmail("");
     setStartDate(null);
     setComment("");
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
   };
 
   return (
@@ -51,6 +62,7 @@ export const BookingForm = () => {
           onChange={(e) => setName(e.target.value)}
           required
         />
+
         <input
           type="email"
           placeholder="Email*"

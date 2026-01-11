@@ -33,25 +33,27 @@ export const Reviews = ({ reviews }: Props) => {
   }
 
   return (
-    <ul className={styles.reviewsList}>
-      {reviews.map((review, index) => (
-        <li key={index} className={styles.reviewItem}>
-          <div className={styles.userHeader}>
-            <div className={styles.avatar}>
-              {review.reviewer_name.charAt(0).toUpperCase()}
-            </div>
+    <div className={styles.container}>
+      <ul className={styles.reviewsList}>
+        {reviews.map((review, index) => (
+          <li key={index} className={styles.reviewItem}>
+            <div className={styles.userHeader}>
+              <div className={styles.avatar}>
+                {review.reviewer_name.charAt(0).toUpperCase()}
+              </div>
 
-            <div className={styles.userInfo}>
-              <p className={styles.userName}>{review.reviewer_name}</p>
-              <div className={styles.starsContainer}>
-                {renderStars(review.reviewer_rating)}
+              <div className={styles.userInfo}>
+                <p className={styles.userName}>{review.reviewer_name}</p>
+                <div className={styles.starsContainer}>
+                  {renderStars(review.reviewer_rating)}
+                </div>
               </div>
             </div>
-          </div>
 
-          <p className={styles.comment}>{review.comment}</p>
-        </li>
-      ))}
-    </ul>
+            <p className={styles.comment}>{review.comment}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

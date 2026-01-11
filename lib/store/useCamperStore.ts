@@ -79,58 +79,39 @@ export const useCamperStore = create<CamperStore>()(
 
       fetchCampers: async (isNewSearch = false) => {
         set({ isLoading: true });
+
         try {
           const { page, filters, items } = get();
           const currentPage = isNewSearch ? 1 : page;
 
-          const activeParams: SearchParams = {
+          const params: SearchParams = {
             page: currentPage,
             limit: 4,
           };
 
-          if (filters.location) activeParams.location = filters.location;
-          if (filters.form) activeParams.form = filters.form;
-          if (filters.transmission)
-            activeParams.transmission = filters.transmission;
+          if (filters.location) params.location = filters.location;
+          if (filters.form) params.form = filters.form;
+          if (filters.transmission) params.transmission = filters.transmission;
+          if (filters.AC) params.AC = true;
+          if (filters.kitchen) params.kitchen = true;
+          if (filters.TV) params.TV = true;
+          if (filters.bathroom) params.bathroom = true;
 
-          if (filters.AC) activeParams.AC = true;
-          if (filters.kitchen) activeParams.kitchen = true;
-          if (filters.TV) activeParams.TV = true;
-          if (filters.bathroom) activeParams.bathroom = true;
-
-          const response = await axios.get<ApiResponse>(API_URL, {
-            params: activeParams,
-          });
-
+          const response = await axios.get<ApiResponse>(API_URL, { params });
           const newData = response.data.items;
-          const totalLoaded = isNewSearch
-            ? newData.length
-            : items.length + newData.length;
 
           set({
             items: isNewSearch ? newData : [...items, ...newData],
             page: currentPage + 1,
             isLoading: false,
-            hasMore: totalLoaded < response.data.total,
+            hasMore: newData.length === 4,
           });
-        } catch (error: unknown) {
-          if (axios.isAxiosError(error)) {
-            if (error.response?.status === 404) {
-              console.warn("Нічого не знайдено за такими фільтрами (404)");
-              set({
-                items: isNewSearch ? [] : get().items,
-                isLoading: false,
-                hasMore: false,
-              });
-              return;
-            }
-          }
-
-          console.error("Помилка завантаження кемперів:", error);
+        } catch (error) {
+          console.error("Error loading campers:", error);
           set({
             isLoading: false,
-            items: isNewSearch ? [] : get().items,
             hasMore: false,
+            items: isNewSearch ? [] : get().items,
           });
         }
       },

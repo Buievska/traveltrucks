@@ -4,6 +4,14 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const metadata = {
+  title: "TravelTrucks",
+  description: "Camper rental service",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
